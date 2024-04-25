@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Img to text</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Image</h1>
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+        <form action="/upload" method="POST" enctype="multipart/form-data" >
+            <!-- <label for="img"></label> -->
+            <input type="file" name="img" accept="image/*" required>
+            <button type="submit">Upload</button>
+        </form>
+        <h2>Extracted Text:</h2>
+        <!-- {% if text %} -->
+        <div class="pre">
+            <pre>{{ text }}</pre>
+            
+            </div>
+            <!-- {% endif %} -->
+            <button type="reset"><a href="/reset" class="button2" style="text-decoration: none;">Reset</a></button>
+    </div>
+</body>
+</html>
